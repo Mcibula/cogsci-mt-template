@@ -1,0 +1,12 @@
+% -------------------
+% Introduction section (not numbered)
+% -------------------
+
+% This chapter heading is a bit more complex because we want it not numbered,
+% but preserved in the ToC; DO NOT CHANGE!
+\chapter*{Introduction}                             % * means the chapter number will be omitted
+\addcontentsline{toc}{chapter}{Introduction}        % manually add this section to the ToC
+\markboth{Introduction}{Introduction}               % add the headers
+
+% Enable referencing to this chapter by `\cref{ch:intro}` anywhere in the document
+\label{ch:intro}
