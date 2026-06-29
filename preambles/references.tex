@@ -1,0 +1,19 @@
+% -------------------
+% More bibliography settings
+% DO NOT CHANGE! (unless you know what you are doing, of course)
+% -------------------
+
+\addbibresource{references.bib}
+\DeclareFieldFormat{apacase}{#1}
+
+\DeclareCiteCommand{\citeyear}
+    {\usebibmacro{prenote}}
+    {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+    {\multicitedelim}
+    {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\citeyearpar}[\mkbibparens]
+    {\usebibmacro{prenote}}
+    {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+    {\multicitedelim}
+    {\usebibmacro{postnote}}

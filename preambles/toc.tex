@@ -1,0 +1,12 @@
+% -------------------
+% More ToC settings
+% DO NOT CHANGE! (unless you know what you are doing, of course)
+% -------------------
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[3]{\bgroup\let\addcontentsline=\nocontentsline#1{#2\label{#3}}\egroup}
+\linespread{1.2}
+\counterwithout{footnote}{chapter}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+

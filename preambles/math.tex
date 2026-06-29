@@ -1,0 +1,31 @@
+% -------------------
+% Custom math definitions
+%
+% Here, you can define your own notation shortcuts;
+% if you don't need any, leave this file as is
+% -------------------
+
+%%% Number domains %%%
+% Real numbers
+\newcommand*{\RR}{\ensuremath{\mathbb{R}}}
+
+% Natural numbers
+\newcommand*{\NN}{\ensuremath{\mathbb{N}}}
+
+
+%%% Misc notation %%%
+% Argument placeholder
+\newcommand*{\placeholder}{\makebox[1ex]{\textbf{$\cdot$}}}
+
+% Vector norm
+\newcommand*{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Radians unit
+\newcommand{\rad}{\mathrm{rad}}
+
+% Operators
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\mse}{MSE}
+\DeclareMathOperator{\mae}{MAE}
