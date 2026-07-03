@@ -25,7 +25,9 @@
     Field of Study:  & \thesisField \\
     Department:      & \thesisDepartment \\
     Supervisor:      & \thesisSupervisor \\
-%   Consultant:      & \thesisConsultant \\            % <-- If you have a consultant, uncomment this
+    \ifdefempty{\thesisConsultant}{}{
+        Consultant:      & \thesisConsultant \\
+    }
 \end{tabular}
 
 \vfill
