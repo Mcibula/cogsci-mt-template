@@ -1,0 +1,17 @@
+% -------------------
+% More text formatting settings
+% DO NOT CHANGE! (unless you know what you are doing, of course)
+% -------------------
+
+% An environment to enforce formatting in a single paragraph
+\makeatletter
+\newcommand{\@singlepar@cr}[1][]{\unskip\space\ignorespaces}
+\newenvironment{singlepar}{%
+    \def\par{\unskip\space\ignorespaces}%
+    \def\newline{\unskip\space\ignorespaces}%
+    \renewcommand{\\}{\@ifstar{\@singlepar@cr}{\@singlepar@cr}}%
+    \ignorespaces
+}{%
+  \endgraf
+}
+\makeatother
