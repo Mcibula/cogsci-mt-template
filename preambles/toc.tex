@@ -1,5 +1,5 @@
 % -------------------
-% More ToC settings
+% More ToC and list settings and automations
 % DO NOT CHANGE! (unless you know what you are doing, of course)
 % -------------------
 
@@ -10,3 +10,59 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+% Render LoF, LoT, and LoA only if there are any respective entities present
+\makeatletter
+\AtBeginDocument{%
+    % Conditional LoF
+    \ifdefined\listoffigures
+        \ifdefined\lofPresent
+            % Figures exist; keep original command
+        \else
+            % No figures found in previous run; disable command
+            \let\listoffigures\relax
+        \fi
+
+        % Hook to write the flag to the aux file on the first figure
+        \AddToHookNext{env/figure/begin}{%
+            \write\@auxout{\global\gdef\string\lofPresent{1}}%
+        }%
+        \AddToHookNext{env/figure*/begin}{%
+            \write\@auxout{\global\gdef\string\lofPresent{1}}%
+        }%
+    \fi
+
+    % Conditional LoT
+    \ifdefined\listoftables
+        \ifdefined\lotPresent
+            % Tables exist; keep original command
+        \else
+            % No tables found in previous run; disable command
+            \let\listoftables\relax
+        \fi
+
+        \AddToHookNext{env/table/begin}{%
+            \write\@auxout{\global\gdef\string\lotPresent{1}}%
+        }%
+        \AddToHookNext{env/table*/begin}{%
+            \write\@auxout{\global\gdef\string\lotPresent{1}}%
+        }%
+    \fi
+
+    % Conditional LoA
+    \ifdefined\listofalgorithms
+        \ifdefined\loaPresent
+            % Algorithms exist; keep original command
+        \else
+            % No algorithms found in previous run; disable command
+            \let\listofalgorithms\relax
+        \fi
+
+        \AddToHookNext{env/algorithm/begin}{%
+            \write\@auxout{\global\gdef\string\loaPresent{1}}%
+        }%
+        \AddToHookNext{env/algorithm*/begin}{%
+            \write\@auxout{\global\gdef\string\loaPresent{1}}%
+        }%
+    \fi
+}
+\makeatother
