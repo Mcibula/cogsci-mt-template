@@ -242,10 +242,19 @@
 \pagestyle{headings}
 
 \input{sections/intro}
+
+% Link here your chapter files from `sections/` using `\input{}`.
+% You can omit `.tex` from the filenames here. The order of linking
+% determines the order in the document. For example:
+
 %\input{sections/preliminaries}
 %\input{sections/methods}
 %\input{sections/results}
 %\input{sections/discussion}
+
+% The tutorial chapter; remove this one, once you are done with it
+\input{sections/chapter}
+
 \input{sections/conclusion}
 
 
@@ -267,9 +276,10 @@
 
 
 % -------------------
-% Appendices
+% Appendices (optional)
 % -------------------
 
+% Comment these out (incl. `\appendix`) if you don't have any appendices
 \appendix
 \input{sections/appendixA}
 \input{sections/appendixB}
