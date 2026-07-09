@@ -1,0 +1,52 @@
+\makeatletter
+\newglossarystyle{customsymbols}{%
+  \setglossarystyle{mcolalttreegroup}%
+  \renewcommand{\glsgroupheading}[1]{%
+    \par\vspace{1em}
+    \def\@gls@prevlevel{-1}%
+    \hangindent0pt\relax
+    \parindent0pt\relax
+    \glstreegroupheaderfmt{\bf\glsgetgrouptitle{##1}}\par
+    \nopagebreak\vspace{0.5em}
+  }%
+  \renewcommand{\glossaryheader}{\raggedright}
+}
+\makeatother
+
+\setglossarypreamble[symbols]{
+    \noindent
+    Capital letters (e.g., $X$) are used for random variables, sets, or matrices if boldfaced (e.g., $\bm{M}$).
+    Lower-case letters denote scalars (e.g., $x$), and the values of random variables (e.g., $X = x$).
+    Vectors are denoted by lower-case bold letters (e.g., $\bm{v}$).\par
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General Notation
+\glsxtrnewsymbol[description={real numbers}, group={gen}]{sym:RR}{$\RR$}
+\glsxtrnewsymbol[description={non-negative integers}, group={gen}]{sym:NN}{$\NN$}
+\glsxtrnewsymbol[description={$L^p$-norm of $\bm{u}$}, group={gen}]{sym:norm}{$\norm{\bm{u}}_p$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Probability Theory
+\glsxtrnewsymbol[description={uniform distribution bounded by~$[a, b]$}, group={prob}]{sym:uniform}{$\mathcal{U}\!\left[a, b\right]$}
+\glsxtrnewsymbol[description={normal distribution centered around~$\mu$ with~variance $\sigma^2$}, group={prob}]{sym:normal}{$\mathcal{N}\!\left(\mu, \sigma^2\right)$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Groups
+\glsfindwidesttoplevelname
+\glsxtrsetgrouptitle{gen}{General Notation}
+\glsxtrsetgrouptitle{prob}{Probabilistic Modeling}
+
+
+\begingroup
+\setlength{\parskip}{0.3em}
+%\raggedright
+
+\printunsrtglossary[
+    type=symbols,
+    style=customsymbols,
+    title={Summary of Notation}
+]
+\endgroup

@@ -1,0 +1,30 @@
+\makeatletter
+\newglossarystyle{customacronyms}{%
+  \setglossarystyle{mcolalttreegroup}%
+  \renewcommand{\glsgroupheading}[1]{}%
+  \renewcommand{\glossaryheader}{\raggedright}
+}
+\makeatother
+
+% Math & ML
+\newacronym{rl}{RL}{reinforcement learning}
+\newacronym{mdp}{MDP}{Markov decision process}
+\newacronym{dof}{DoF}{degrees of freedom}
+\newacronym{mlp}{MLP}{multilayer perceptron}
+
+% Cognition
+\newacronym{lot}{LoT}{language of thought}
+
+% Neuroscience
+\newacronym{lgn}{LGN}{lateral geniculate nucleus}
+\newacronym{rgc}{RGC}{retinal ganglion cell}
+\newacronym{itc}{ITC}{inferotemporal cortex}
+\newacronym{atl}{ATL}{anterior temporal lobe}
+
+\glsfindwidesttoplevelname
+\printglossary[
+    type=acronym,
+    style=customacronyms,
+    title={List of Abbreviations},
+    nonumberlist
+]
