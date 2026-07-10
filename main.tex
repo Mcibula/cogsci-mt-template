@@ -83,15 +83,16 @@
 
 % Small utility for highlighting TODOs
 \newcommand{\todo}[1][]{
-    \textcolor{red}{
+    \textcolor{red}{%
         [TODO%
         \ifthenelse{\isempty{#1}}%
             {}%
             {: #1}%
-        ]
-    }
+        ]%
+    }%
+    \xspace
 }
-\newcommand*{\tocite}{\textcolor{orange}{[reference needed]}}
+\newcommand*{\tocite}{\textcolor{orange}{[reference needed]}\xspace}
 
 
 %%% Graphics and floats %%%
