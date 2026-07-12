@@ -39,9 +39,11 @@ The template is structured as follows:
 │   ├── assignment-en.pdf
 │   └── assignment-sk.pdf
 │
-├── figures                             // Images/graphics
+├── figures                             // Images, plots, charts, diagrams, photos
 │
 ├── lists
+│   ├── acronyms.tex                    // Defines List of Abbreviations
+│   └── symbols.tex                     // Defines Summary of Notation
 │
 ├── preambles                           // Additional settings and automation
 │   ├── doc-info.tex                    // Details about your thesis
@@ -75,8 +77,8 @@ To start, just follow these steps:
 
 3. Start structuring your thesis. Make a new blank `.tex` file in `sections/` for each main chapter of your thesis, 
    such as introduction, preliminaries, prior work, methods, results, discussion, conclusion. You can generally start
-   with the [IMRaD structure](https://en.wikipedia.org/wiki/IMRAD) and adjust it together with your supervisor  for your purposes. The example 
-   unnumbered introduction and conclusion chapters are already created in this template.
+   with the [IMRaD structure](https://en.wikipedia.org/wiki/IMRAD) and adjust it together with your supervisor for 
+   your purposes. The example unnumbered introduction and conclusion chapters are already created in this template.
 
 4. Navigate to the `Main content` section of `main.tex` near the end of the file, and connect each of the newly created
    chapter files to the main document according to the instructions there. The `\input{}` command basically copy-pastes
@@ -86,8 +88,8 @@ To start, just follow these steps:
 
 5. In the `Appendices` at the bottom of `main.tex`, link/unlink/add more appendix files, if you need to.
 
-6. Navigate to `sections/chapter.tex` and the corresponding chapter in the rendered PDF for a tiny tutorial on
-   how to you use LaTeX. Don't forget to unlink it in `main.tex`, once you went through it.
+6. Navigate to `sections/chapter.tex` and the corresponding chapter in the rendered PDF for a (relatively) brief 
+   tutorial on how to you use LaTeX. Don't forget to unlink it in `main.tex`, once you went through it.
 
 7. Fill your chapter files with the content. While writing, store your references in `references.bib` in the BibTeX
    format. All the well-behaved citation managers and conference/journal websites are able to generate BibTeX 
@@ -99,4 +101,6 @@ To start, just follow these steps:
    and `sections/acks.tex` accordingly. If you don't want to include them, comment out the corresponding lines
    in the `Declaration and acknowledgments` section of `main.tex`.
 
-10.  
+10. If you used abbreviations and/or extensive mathematical notation as per the tutorial and would like to 
+    the respective List of Abbreviations and Summary of Notation, navigate to the `Lists` section in `main.tex` 
+    and make sure the two corresponding `\input` lines are uncommented. Comment them out if you want to hide the lists.
