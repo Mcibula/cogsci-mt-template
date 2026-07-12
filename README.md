@@ -1,14 +1,17 @@
-# Master's Thesis Template <br> (*FMPI, Comenius University, Cognitive Science*)
+# Master's Thesis LaTeX Template <br> (*FMPI, Comenius University, Cognitive Science*)
 
-This is a master's thesis template primarily intended for students of the international master's program 
+This is a master's thesis LaTeX template primarily intended for students of the international master's program 
 in cognitive science ([MEi:CogSci](https://cogsci.fmph.uniba.sk/meicogsciba/)) at the Faculty of Mathematics, 
 Physics and Informatics of Comenius University Bratislava.
 
 The template was adapted and translated from the 
 [Bachelor's Computer Science template](https://bbrejova.github.io/bcdav/LaTeX_pre_bakal%C3%A1rsku_pr%C3%A1cu.html) 
-and complies with the university's official thesis formatting directives.
+and complies with the university's official thesis formatting directives
+(i.e., [Internal directive CU 32/2023](https://zona.fmph.uniba.sk/fileadmin/ruk/legislativa/2023/Vp_2023_32.pdf)
+and its [Appendices 1 and 2](https://zona.fmph.uniba.sk/fileadmin/ruk/legislativa/2023/Vp_2023_32_prilohy.pdf)).
 
-This repository stores and maintains the official source code for the [Overleaf LaTeX template](https://www.overleaf.com/latex/templates/masters-thesis-template-fmpi-comenius-university-cognitive-science/qhrtysmtvdfx).
+This repository stores and maintains the official source code for the 
+[Overleaf LaTeX template](https://www.overleaf.com/latex/templates/masters-thesis-template-fmpi-comenius-university-cognitive-science/qhrtysmtvdfx).
 
 
 ## Why use this template?
