@@ -1,17 +1,13 @@
-\makeatletter
-\newglossarystyle{customsymbols}{%
-  \setglossarystyle{mcolalttreegroup}%
-  \renewcommand{\glsgroupheading}[1]{%
-    \par\vspace{1em}
-    \def\@gls@prevlevel{-1}%
-    \hangindent0pt\relax
-    \parindent0pt\relax
-    \glstreegroupheaderfmt{\bf\glsgetgrouptitle{##1}}\par
-    \nopagebreak\vspace{0.5em}
-  }%
-  \renewcommand{\glossaryheader}{\raggedright}
-}
-\makeatother
+% -------------------
+% Summary of notation
+%
+% Here, you can define what will be included in your Summary of Notation.
+% If you are not going to use it, ignore this file.
+% See the tutorial chapter for more details.
+% -------------------
+
+
+%%% Preamble %%%
 
 \setglossarypreamble[symbols]{
     \noindent
@@ -22,24 +18,40 @@
 }
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Define your list of notation here %%%
+
 % General Notation
 \glsxtrnewsymbol[description={real numbers}, group={gen}]{sym:RR}{$\RR$}
 \glsxtrnewsymbol[description={non-negative integers}, group={gen}]{sym:NN}{$\NN$}
 \glsxtrnewsymbol[description={$L^p$-norm of $\bm{u}$}, group={gen}]{sym:norm}{$\norm{\bm{u}}_p$}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Probability Theory
 \glsxtrnewsymbol[description={uniform distribution bounded by~$[a, b]$}, group={prob}]{sym:uniform}{$\mathcal{U}\!\left[a, b\right]$}
 \glsxtrnewsymbol[description={normal distribution centered around~$\mu$ with~variance $\sigma^2$}, group={prob}]{sym:normal}{$\mathcal{N}\!\left(\mu, \sigma^2\right)$}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Groups
+%%% Define the groups here %%%
 \glsfindwidesttoplevelname
 \glsxtrsetgrouptitle{gen}{General Notation}
 \glsxtrsetgrouptitle{prob}{Probabilistic Modeling}
 
+
+%%% DO NOT CHANGE below this point %%%
+
+\makeatletter
+\newglossarystyle{customsymbols}{%
+    \setglossarystyle{mcolalttreegroup}%
+    \renewcommand{\glsgroupheading}[1]{%
+        \par\vspace{1em}
+        \def\@gls@prevlevel{-1}%
+        \hangindent0pt\relax
+        \parindent0pt\relax
+        \glstreegroupheaderfmt{\bf\glsgetgrouptitle{##1}}\par
+        \nopagebreak\vspace{0.5em}
+    }%
+    \renewcommand{\glossaryheader}{\raggedright}
+}
+\makeatother
 
 \begingroup
 \setlength{\parskip}{0.3em}

@@ -1,10 +1,9 @@
-\makeatletter
-\newglossarystyle{customacronyms}{%
-  \setglossarystyle{mcolalttreegroup}%
-  \renewcommand{\glsgroupheading}[1]{}%
-  \renewcommand{\glossaryheader}{\raggedright}
-}
-\makeatother
+% -------------------
+% Definitions of abbreviations
+%
+% Here, you can define abbreviations you can use across the document.
+% See the tutorial chapter for more details.
+% -------------------
 
 % Math & ML
 \newacronym{rl}{RL}{reinforcement learning}
@@ -20,6 +19,15 @@
 \newacronym{rgc}{RGC}{retinal ganglion cell}
 \newacronym{itc}{ITC}{inferotemporal cortex}
 \newacronym{atl}{ATL}{anterior temporal lobe}
+
+
+%%% DO NOT CHANGE below this point %%%
+
+\newglossarystyle{customacronyms}{%
+  \setglossarystyle{mcolalttreegroup}%
+  \renewcommand{\glsgroupheading}[1]{}%
+  \renewcommand{\glossaryheader}{\raggedright}
+}
 
 \glsfindwidesttoplevelname
 \printglossary[
