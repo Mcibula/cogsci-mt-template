@@ -74,6 +74,7 @@ the type of element (e.g., \enquote{Section}, \enquote{Figure}, or \enquote{Equa
 Different elements, such as figures or tables, use different placements for the \verb|\label{}| command; you will
 see exactly how in \cref{sec:math,sec:figures,sec:tables,sec:algs}.
 
+\pagebreak
 
 \section{Text Formatting}
 \label{sec:text}
@@ -91,6 +92,14 @@ Alternatively, you can use a bold font via \verb|\textbf{text}|:
 \end{displayquote}
 We generally avoid using underlining in academic writing, as it distorts the baseline of the font and can look quite
 ugly.
+
+Some characters in \LaTeX{} have special, reserved meanings: \verb|&|, \verb|%|, \verb|$|, \verb|#|, \verb|_|,
+\verb|{|, \verb|}|, \verb|~|, \verb|^|, and \verb|\|. If you try to use these plainly in your text, \LaTeX{} will
+usually throw a profane fit. For that reason, you need to \emph{escape} them by prepending them with a backslash,
+like this: \&, \%, \$, \#, \_, \{, and \}. The only exceptions are \verb|~|, \verb|^|, and \verb|\|, which cannot be
+escaped this way. Instead, use \verb|\textasciitilde|, \verb|\textasciicircum|, and \verb|\textbackslash|,
+respectively. Note that \verb|\\|, has the special function of forcing a line break, like this: \\ It is not
+appropriate to use it in normal textual paragraphs, however.
 
 \subsection{Dashes and Spaces}
 \label{sec:text.dashes}
@@ -357,12 +366,19 @@ the patience, care and support from Panpan Mao over the passed \textins{\emph{si
 Elements like figures, tables, and algorithms are called \enquote{floats} because \LaTeX{} dynamically calculates
 the best physical placement for them on the pages to avoid awkward blank spaces.
 
+All these elements are automatically numbered, indexed in the corresponding list at the beginning of your thesis,
+and you can refer to them via standard \verb|\cref| commands. Whenever you use a figure, table, or algorithm,
+also make sure to refer to it in your text, so they do not stand alone with only the minimal context provided by
+their captions.
+
+\pagebreak
+
 \subsection{Figures}
 \label{sec:figures}
 
 Figures are included using the \verb|figure| environment. Always place your \verb|\label{}| command after
 the \verb|\caption{}| command to ensure that cross-referencing links correctly. The caption should be descriptive,
-explaining all visual elements and can span multiple sentences. If you mention a specific visual element,
+explaining all visual elements, and can span multiple sentences. If you mention a specific visual element,
 such as a dashed line, you can italicize it; in \cref{fig:instruments} we emphasized \emph{boldface}. The caption
 will also be used automatically in the List of Figures as the name of the figure; however, captions are usually
 awfully long for this purpose, so you can define a short name which will be used instead via
@@ -380,10 +396,17 @@ You can also adjust the size and the placement of the figure. \cref{fig:instrume
 text width. While \LaTeX{} likes to determine the placement on its own, you can express your preference via the
 parameters in \verb|\begin{figure}[placement]|. You can use \verb|h| (\emph{here} -- \LaTeX{} will try to place
 the figure at the corresponding place or somewhere close), \verb|t| (\emph{top} -- the figure will be glued
-to the top of the page), \verb|b| (\emph{bottom} -- bottom of the page) and any combination of them, while the order
+to the top of the page), \verb|b| (\emph{bottom} -- bottom of the page), and any combination of them, where the order
 determines the priority. If you get desperate, you can additionally use \verb|!|, which will try to force \LaTeX{} to
 comply; however, sometimes even that can be unsuccessful; in that case, try to move the figure to different places and
 sections.
+
+Regarding the actual images within your figures, make sure to use vector graphics whenever you are displaying plots,
+charts, or diagrams. This ensures that your figures scale up properly under zoom or for print, and that any text
+within them remains selectable and legible.\footnote{Make sure to also use an appropriate font size in your figures,
+so the text remains visible even at 100\% zoom. While you can zoom in within a PDF viewer, readers of a printed
+version will not have that luxury.} The easiest format to use for this purpose is PDF, which is supported by any proper
+graphic software or plotting library. In the case of photos, JPEG or PNG is fine.
 
 \subsection{Tables}
 \label{sec:tables}
