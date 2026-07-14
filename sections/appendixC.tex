@@ -1,2 +1,26 @@
 \chapter{Supplementary Figures}
 \label{ch:appendix.c}
+
+If you have too many figures or some special ones not fitting in your regular text, you can put them in an appendix.
+The template also allows you to switch to the landscape page orientation. For an example, see \cref{fig:map-age}.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\linewidth]{figures/classroom}
+    \caption[Example scatter plot]{Some random scatter plot adopted from \citet{Munroe2021}
+    to fill the blank space with.}
+    \label{fig:classroom}
+\end{figure}
+
+
+\begin{landscape}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.85\linewidth]{figures/map-age}
+    \caption[Flowcharted algorithm determining the age of an undated world map]{Flowcharted algorithm determining
+    the age of an undated political world map. The map is assumed to be complete, labeled in English, and detailed
+    enough. The decision process starts at the node \emph{START}. Adopted from \citet{Munroe2016}.}
+    \label{fig:map-age}
+\end{figure}
+\end{landscape}
