@@ -1,5 +1,8 @@
 # Master's Thesis LaTeX Template <br> (*FMPI, Comenius University, Cognitive Science*)
 
+[![Static Badge](https://img.shields.io/badge/Overleaf-Open%20as%20Template-46a247?style=for-the-badge&logo=overleaf)](https://www.overleaf.com/latex/templates/masters-thesis-template-fmpi-comenius-university-cognitive-science/qhrtysmtvdfx)
+[![GitHub License](https://img.shields.io/github/license/Mcibula/cogsci-mt-template?style=for-the-badge&color=blue)](https://github.com/Mcibula/cogsci-mt-template/blob/master/LICENSE)
+
 This is a master's thesis LaTeX template primarily intended for students of the international master's program 
 in cognitive science ([MEi:CogSci](https://cogsci.fmph.uniba.sk/meicogsciba/)) at the Faculty of Mathematics, 
 Physics and Informatics of Comenius University Bratislava.
