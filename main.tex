@@ -27,6 +27,29 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[useregional]{datetime2}
+
+
+%%% Template utilities %%%
+\usepackage[dvipsnames]{xcolor}
+\usepackage{etoolbox}
+\usepackage{environ}
+\usepackage{xifthen}
+
+% Special placeholder for TODOs
+\newcommand{\todo}[1][]{
+    \textcolor{red}{%
+        [TODO%
+        \ifthenelse{\isempty{#1}}%
+            {}%
+            {: #1}%
+        ]%
+    }%
+    \xspace
+}
+
+% Special placeholder for missing references
+\newcommand*{\tocite}{\textcolor{orange}{[reference needed]}\xspace}
 
 
 %%% Formatting %%%
@@ -51,7 +74,6 @@
 
 \usepackage{xspace}
 \usepackage[gen]{eurosym}
-\usepackage{etoolbox}
 
 \input{preambles/formatting}
 
@@ -84,22 +106,13 @@
 ]{algorithm2e}
 
 
-%%% Colored text %%%
-\usepackage[dvipsnames]{xcolor}
-\usepackage{xifthen}
+%%% Hyperlinking %%%
+\usepackage{xurl}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\usepackage[capitalise]{cleveref}
+\input{preambles/hyperlinks}
 
-% Small utilities for highlighting TODOs
-\newcommand{\todo}[1][]{
-    \textcolor{red}{%
-        [TODO%
-        \ifthenelse{\isempty{#1}}%
-            {}%
-            {: #1}%
-        ]%
-    }%
-    \xspace
-}
-\newcommand*{\tocite}{\textcolor{orange}{[reference needed]}\xspace}
+
 
 
 %%% Graphics and floats %%%
@@ -121,13 +134,6 @@
 % Use Booktabs style
 \usepackage{booktabs}
 \usepackage{multirow}
-
-
-%%% Hyperlinking %%%
-\usepackage{url}
-\usepackage[hidelinks,breaklinks]{hyperref}
-\usepackage[capitalise]{cleveref}
-\input{preambles/hyperlinks}
 
 
 %%% Quotes %%%
