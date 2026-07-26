@@ -3,6 +3,11 @@
 % DO NOT CHANGE! (unless you know what you are doing, of course)
 % -------------------
 
+\AtBeginDocument{
+    % Match the URL font to the main font
+    \urlstyle{same}
+}
+
 % Format `cref` labels for equations
 \creflabelformat{equation}{#2\textup{#1}#3}
 
