@@ -78,18 +78,6 @@
 \input{preambles/formatting}
 
 
-%%% References %%%
-% Configure to use proper APA style
-\usepackage[
-    backend=biber,
-    style=apa,
-    natbib=true,
-    sortcites=false,
-    uniquename=false
-]{biblatex}
-\input{preambles/references}
-
-
 %%% Math and algorithms %%%
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -113,6 +101,16 @@
 \input{preambles/hyperlinks}
 
 
+%%% References %%%
+% Configure to approximate APA 7 referencing style
+\usepackage[natbibapa]{apacite}
+\input{preambles/references}
+
+
+%%% Quotes %%%
+\usepackage[autostyle]{csquotes}
+\MakeOuterQuote{"}
+\SetCiteCommand{\citep}
 
 
 %%% Graphics and floats %%%
@@ -134,12 +132,6 @@
 % Use Booktabs style
 \usepackage{booktabs}
 \usepackage{multirow}
-
-
-%%% Quotes %%%
-\usepackage[autostyle]{csquotes}
-\MakeOuterQuote{"}
-\SetCiteCommand{\citep}
 
 
 %%% Additional lists %%%
@@ -285,7 +277,8 @@
 \thispagestyle{empty}
 \clearpage
 
-\printbibliography
+\bibliographystyle{apacite}
+\bibliography{references}
 
 
 

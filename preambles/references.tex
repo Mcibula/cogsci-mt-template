@@ -1,19 +1,92 @@
 % -------------------
 % More bibliography settings
+%
+% Primarily implementing several BibLaTeX APA 7 features on top of the `apacite` APA 6
+% used here due to the much faster compilation speed
+%
 % DO NOT CHANGE! (unless you know what you are doing, of course)
 % -------------------
 
-\addbibresource{references.bib}
-\DeclareFieldFormat{apacase}{#1}
+\AtBeginDocument{
+    % Rename the Bibliography section
+    \renewcommand{\refname}{Bibliography}
+    \renewcommand{\bibname}{Bibliography}
 
-\DeclareCiteCommand{\citeyear}
-    {\usebibmacro{prenote}}
-    {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
-    {\multicitedelim}
-    {\usebibmacro{postnote}}
+    % Article & chapter titles (upright text, preserve capitalization)
+    \renewcommand{\APACrefatitle}[2]{#1}
+    \renewcommand{\APACrefaetitle}[2]{#1}
 
-\DeclareCiteCommand{\citeyearpar}[\mkbibparens]
-    {\usebibmacro{prenote}}
-    {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
-    {\multicitedelim}
-    {\usebibmacro{postnote}}
+    % Book, report, thesis, & website titles (italicized text, preserve capitalization)
+    \renewcommand{\APACrefbtitle}[2]{\emph{#1}}
+    \renewcommand{\APACrefbetitle}[2]{\emph{#1}}
+}
+
+\AtBeginEnvironment{thebibliography}{
+    % Enables line justification
+    \setlength{\rightskip}{0pt}
+
+    % Increase flex space to break long URLs
+    \emergencystretch=3em
+}
+
+\makeatletter
+\NAT@longnamesfalse
+
+% ISO date formatter
+\newcommand{\format@date}[1]{%
+    \in@{-}{#1}%
+    \ifin@\DTMdate{#1}\else#1\fi
+}
+
+% Automate URL suppression when DOI is present
+\newtoggle{bibdoi}
+\newtoggle{biburl}
+
+\undef{\APACrefURL}
+\undef{\endAPACrefURL}
+\undef{\APACrefDOI}
+\undef{\endAPACrefDOI}
+
+\long\def\collect@url#1{\global\def\bib@url{#1}}
+
+% Redefine APACrefURL to collect tokens and format date
+\newenvironment{APACrefURL}[1][]{%
+    \global\toggletrue{biburl}%
+    \ifx
+        \@empty#1\@empty
+        \gdef\bib@url@prefix{\BRetrievedFrom\ignorespaces}%
+    \else
+        \gdef\bib@url@prefix{\BRetrieved{\format@date{#1}}\ignorespaces}%
+    \fi
+    \Collect@Body\collect@url
+}{}
+
+% Format DOIs as active HTTPS links
+\providecommand{\doiprefix}{}
+\renewcommand{\doiprefix}{}
+
+\providecommand{\doi}[1]{#1}
+\renewcommand{\doi}[1]{\url{https://doi.org/#1}}
+
+% Redefine APACrefDOI to mark DOI presence and print inline with clean spacing
+\newenvironment{APACrefDOI}{%
+    \global\toggletrue{bibdoi}%
+    \unskip\ % Remove preceding space gaps and insert exactly 1 space
+    \ignorespaces
+}{}
+
+% At the end of each entry, output URL only if no DOI was present
+\AtBeginEnvironment{thebibliography}{
+    \pretocmd{\PrintBackRefs}{%
+        \iftoggle{bibdoi}{%
+        % DOI was printed inline; suppress URL
+        }{%
+            \iftoggle{biburl}{%
+            % No DOI present; print URL inline
+                \unskip\ \bib@url@prefix\bib@url%
+            }{}%
+        }%
+        \togglefalse{bibdoi}\togglefalse{biburl}%
+    }{}{}
+}
+\makeatother
