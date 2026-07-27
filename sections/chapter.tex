@@ -237,40 +237,42 @@ preamble of the summary.
 \subsection{Citations}
 
 In \LaTeX{}, citations are managed using a bibliography management system (such as Bib\TeX{} or Bib\LaTeX{}).
-Bib\LaTeX{} is slightly more advanced, and since it allows us to use the full APA style for references,
-this template uses Bib\LaTeX{}.
+While Bib\LaTeX{} is more advanced and allows us to use the full APA 7 style for references, it can also be
+incredibly slow to compile, especially if you have a large bibliography and work in Overleaf. Hence, we will use
+older but much faster Bib\TeX{}, which can only handle APA 6, but has been adjusted for this template to get as
+close to APA 7 as possible.
 
-\subsubsection*{Bib\LaTeX{}}
+\subsubsection*{Bib\TeX{}}
 
 In our case, all the references you use must be stored in \verb|references.bib|. A reference entry can look like this:
 \begin{verbatim}
 @Article{Harnad1990,
-  author       = {Harnad, Stevan},
-  date         = {1990},
-  journaltitle = {Physica D: Nonlinear Phenomena},
-  title        = {The symbol grounding problem},
-  doi          = {10.1016/0167-2789(90)90087-6},
-  issn         = {0167-2789},
-  number       = {1–3},
-  pages        = {335--346},
-  volume       = {42},
-  publisher    = {Elsevier BV},
+  author    = {Harnad, Stevan},
+  year      = {1990},
+  journal   = {Physica D: Nonlinear Phenomena},
+  title     = {The symbol grounding problem},
+  doi       = {10.1016/0167-2789(90)90087-6},
+  issn      = {0167-2789},
+  number    = {1–3},
+  pages     = {335--346},
+  volume    = {42},
+  publisher = {Elsevier BV},
 }
 \end{verbatim}
-In the entry, \verb|@Article| determines the type of the publication; in this case, it is a journal article. You can
-also have many others, e.g., \verb|@InProceedings|, \verb|@Book|, \verb|@InBook|, \verb|@PhdThesis|, \verb|@Software|,
+In the entry, \verb|@Article| determines the publication type; in this case, it is a journal article. You can
+also use many others, e.g., \verb|@InProceedings|, \verb|@Book|, \verb|@InBook|, \verb|@PhdThesis|, \verb|@Misc|,
 etc. Afterward, in this case, \verb|Harnad1990| is the identifier of the entry, so you can refer to it in the
-document. The rest of the fields provide details about the publication. You can provide many more fields
-than actually needed, because based on the bibliography style and the entry type, Bib\LaTeX{} will choose only the
-relevant ones and format them appropriately. The file can contain even unused references; only those that are used
-in the text will be rendered in the bibliography. Moreover, the references can be in any order in the file;
-Bib\LaTeX{} will sort the used ones according to the used bibliography style.
+document. The rest of the fields provide details about the publication. You can include extra fields, as Bib\TeX{}
+will extract only the relevant ones and format them according to the APA guidelines. Unused references in
+\verb|references.bib| will not be rendered in the final bibliography, and the rendered bibliography will be sorted
+automatically.
 
 You should be able to download such a Bib\TeX{} entry from any journal or conference proceedings website. If you
 cannot find any (often in the case of books; publishers' websites do not usually provide this option), you can always
-either create your own manually, or use one of many online tools or your favorite AI friend to format the Bib\TeX{}
-entry for you. In case you are looking for a more complex solution, you can use, for example,
-the \emph{\href{https://jabref.org/}{JabRef}} editor, which works directly with your \verb|references.bib|.
+create your own manually, use one of many online tools or your favorite AI friend to format the Bib\TeX{}
+entry for you, or export it from any civilized reference manager (e.g., \emph{Zotero}, \emph{Mendeley}).
+In case you are looking for a more complex solution, you can use, for example, the
+\emph{\href{https://jabref.org/}{JabRef}} editor, which works directly with your \verb|references.bib|.
 
 Additionally, there are a few stylistic recommendations for your bibliography entries you might consider:
 \begin{enumerate}
@@ -284,14 +286,15 @@ Additionally, there are a few stylistic recommendations for your bibliography en
 \begin{verbatim}
 title = {{DiBS}: {D}ifferentiable {B}ayesian structure learning}
 \end{verbatim}
-    This template, however, preserves the capitalization of your entries without making automatic changes.
 
-    \item For the \verb|date| field, leave just the year.
+    \item Do not specify the full date of an entry; leave just the year.
     \item Use en-dashes for page ranges in the \verb|pages| field.
     \item In the \verb|doi| field, use a pure DOI identifier, i.e., remove any prefixes such as \verb|doi:|,
-    \verb|doi.org/|, or \verb|https://doi.org/|. With the APA style, the DOI is the preferred identifier;
+    \verb|doi.org/|, or \verb|https://doi.org/|. With the APA 7 style, the DOI is the preferred identifier;
     no other will be displayed.
     \item If you are using a DOI, remove any other field including web addresses, such as \verb|url|.
+    \item For online resources without a DOI, use the \verb|url| field and \verb|urldate| for retrieval dates
+    formatted as \verb|1518-07-14|.
     \item You can include the journal or proceedings editors, but it is not necessary.
     \item You can remove all unnecessary fields, e.g., \verb|note|, \verb|eprint|, \verb|language|,
     \verb|version|, \verb|copyright|, \verb|keywords|, etc. These will never be rendered.
